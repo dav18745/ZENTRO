@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zentronix Chatbot - Zeno</title>
+  <style>
+    #zentronix-chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      font-family: Arial, sans-serif;
+      z-index: 9999;
+    }
+    .chatbot-window {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .chatbot-header {
+      background: #202C45;
+      color: #fff;
+      padding: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .chatbot-body {
+      padding: 16px;
+      font-size: 14px;
+    }
+    .bot-message {
+      margin-bottom: 16px;
+    }
+    .button-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 10px;
+      border: none;
+      background: #202C45;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .button-options button:hover {
+      background: #334a77;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="zentronix-chatbot">
+    <div class="chatbot-window">
+      <div class="chatbot-header">Zeno - Zentronix Assistant</div>
+      <div class="chatbot-body" id="chatbotBody">
+        <div class="bot-message">Hi there! 👋 I'm Zeno, your Zentronix assistant. How can I help you today?</div>
+        <div class="button-options">
+          <button onclick="handleOption('products')">🔍 Explore Products</button>
+          <button onclick="handleOption('track')">📦 Track My Order</button>
+          <button onclick="handleOption('support')">❓ Product Support</button>
+          <button onclick="handleOption('sales')">🛒 Talk to Sales</button>
+          <button onclick="handleOption('question')">💬 Ask a Question</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleOption(option) {
+      const body = document.getElementById('chatbotBody');
+      body.innerHTML = '';
+      let response = '';
+
+      switch(option) {
+        case 'products':
+          response = `Great! What category are you interested in?<br><ul>
+            <li>📱 Smartphones (e.g., Quantum X)</li>
+            <li>🎧 Audio Devices (e.g., AeroPod, IonPro)</li>
+            <li>🖥️ Smart Tech & PCs (e.g., HyperStation, NovaPad)</li>
+            <li>🏠 Home & Accessories (e.g., OmniCam, QuantumDock)</li>
+          </ul>`;
+          break;
+        case 'track':
+          response = `Please enter your order number or email and we’ll check it for you.`;
+          break;
+        case 'support':
+          response = `Which product do you need help with? You can also check our FAQs.`;
+          break;
+        case 'sales':
+          response = `Are you shopping for personal use or a business order? I can connect you to a live agent.`;
+          break;
+        case 'question':
+          response = `Ask me anything! If I can’t answer it, I’ll connect you to a human right away.`;
+          break;
+      }
+
+      body.innerHTML = `<div class='bot-message'>${response}</div>`;
+    }
+  </script>
+
+</body>
+</html>
